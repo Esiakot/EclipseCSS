@@ -1,0 +1,107 @@
+body {
+    padding: 0;
+    margin: 0;
+}
+#eclipseAll {
+    display: flex;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.eclipse-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background-color: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: eclipseConteneur 45s ease-in-out infinite;
+}
+
+.sky {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.eclipse-container.active .sky {
+    animation: moveSky 45s ease-in-out infinite;
+}
+
+.moon {
+    position: absolute;
+    width: 198px;
+    height: 198px;
+    background-color: #c5c5c5;
+    border-radius: 50%;
+    filter: blur(1px);
+    z-index: 3;
+    animation: moveMoon 45s ease-in-out infinite;
+}
+
+.eclipse-container.active .darkness {
+    opacity: 1;
+}
+
+.sun {
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    z-index: 2;
+    filter: blur(1px);
+    animation: eclipseBerserk 45s ease-in-out infinite;
+    box-shadow: 0px 0px 25px 15px #ffb700;
+    background: #ffb700;
+}
+
+.sacriMarque {
+    position: absolute;
+    border-radius: 50%;
+    z-index: 3;
+    animation: marqueSacri 45s ease-in-out infinite;
+}
+
+@keyframes marqueSacri {
+    0% { opacity: 0; }
+    46% { opacity: 0; }
+    48% { opacity: 0.5; }
+    50% { opacity: 1; }
+    52% { opacity: 0.5; }
+    54% { opacity: 0; }
+    100% { opacity: 0; }
+}
+
+@keyframes moveSky {
+    0% { background: #30b3ff88; }
+    25% { background: #30b3ff88; }
+    50% { background: #00040a88; }
+    75% { background: #30b3ff88; }
+    100% { background: #30b3ff88; }
+}
+
+@keyframes moveMoon {
+    0% { transform: translate3d(-650px, 75px, 0); background: #c5c5c5; box-shadow: 0px 0px 0px 0px #ffb700, inset 0px 0px 0px 0px #ffb700, inset 10px -10px 10px 0px #000000; }
+    40% { box-shadow: 0px 0px 0px 0px #601901, inset -15px 3px 10px 0px #601901, inset 25px -15px 30px 0px #000000; }
+    50% { transform: translate3d(0px, 0px, 0px); background: #110000; box-shadow: 0px 0px 85px 35px #790000, inset 0px 0px 0px 0px #790000; }
+    60% { box-shadow: 0px 0px 0px 0px #601901, inset 15px 3px 10px 0px #601901, inset -25px 15px 30px 0px #000000; }
+    100% { box-shadow: 0px 0px 0px 0px #ffb700, inset 0px 0px 0px 0px #ffb700, inset -10px -20px 10px 0px #000000; transform: translate3d(650px, 75px, 0); background: #c5c5c5; }
+}
+
+@keyframes eclipseBerserk {
+    0% { box-shadow: 0px 0px 25px 15px #ffb700, inset -8px 8px 10px 0px #24221e33, inset 8px -8px 10px 0px #24221e33; background: #ffb700; }
+    10% { box-shadow: 0px 0px 25px 15px #ffa200, inset -4px 4px 10px 0px #24221e33, inset 4px -4px 10px 0px #24221e33; background: #ffa200; }
+    20% { box-shadow: 0px 0px 50px 15px #ff6a00, inset -8px 8px 10px 0px #24221e33, inset 8px -8px 10px 0px #24221e33; background: #ff6a00; }
+    30% { box-shadow: 0px 0px 50px 15px #ff4d00, inset -4px 4px 10px 0px #24221e33, inset 4px -4px 10px 0px #24221e33; background: #ff4d00; }
+    40% { box-shadow: 0px 0px 30px 5px #770000, inset -8px 8px 10px 0px #24221e33, inset 8px -8px 10px 0px #24221e33; background: #770000; }
+    50% { box-shadow: 0px 0px 55px 5px #ff0101, inset -15px 15px 10px 0px #24221e33, inset 15px -15px 10px 0px #24221e33; background: #220000; }
+    60% { box-shadow: 0px 0px 30px 5px #770000, inset -8px 8px 10px 0px #24221e33, inset 8px -8px 10px 0px #24221e33; background: #770000; }
+    70% { box-shadow: 0px 0px 50px 15px #ff4d00, inset -4px 4px 10px 0px #24221e33, inset 4px -4px 10px 0px #24221e33; background: #ff4d00; }
+    80% { box-shadow: 0px 0px 50px 15px #ff6a00, inset -8px 8px 10px 0px #24221e33, inset 8px -8px 10px 0px #24221e33; background: #ff6a00; }
+    90% { box-shadow: 0px 0px 25px 15px #ffa200, inset -4px 4px 10px 0px #24221e33, inset 4px -4px 10px 0px #24221e33; background: #ffa200; }
+    100% { box-shadow: 0px 0px 25px 15px #ffb700, inset -8px 8px 10px 0px #24221e33, inset 8px -8px 10px 0px #24221e33; background: #ffb700; }
+}
